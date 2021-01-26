@@ -1,6 +1,6 @@
 window.onload = function () {
     
-    var prov = provincias;
+    var myObj = JSON.parse(provincias);
     console.log(prov[0])
 
 }
