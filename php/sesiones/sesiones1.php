@@ -8,7 +8,7 @@
 </head>
 <body>
     <article>
-        <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
+        <form action="./sesiones2B.php" method="post">
             Nombre: <input type="text" name="nombre"/><br>
             <select name="sal" id="a">
                 <option value="saludo">Saludo</option>
