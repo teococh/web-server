@@ -2,12 +2,14 @@
 var provinciasUsadas;
 var todas;
 let cont;
+let puntos;
 
 window.onload = function () {
     
     provinciasUsadas = Array();
     todas = Array();
     cont = document.getElementById("contenedorProvincias");
+    puntos = 0;
 
     fetch("js/provincias.json")
     .then(respuesta => respuesta.json() )
@@ -31,27 +33,48 @@ function pintar() {
     }
 }
 function comprobar() {
+
+    let x = this.value.toUpperCase();
+    let y = true;
+
     // comunidades[0].provincias[0].nombre
-    console.log(this.value)
+    console.log(x)
     for (let i = 0; i < 16; i++) {
         json.comunidades[i].provincias.forEach(element2 => {
-            if (this.value == element2.nombre) {
-                if (!provinciasUsadas.includes(this.value)) {
+            if (x == element2.nombre.toUpperCase()) {
+                if (!provinciasUsadas.includes(x)) {
+                    this.classList.remove("mal");
                     this.classList.add("bien");
-                    provinciasUsadas.push(this.value);
+                    provinciasUsadas.push(x);
+                    puntos += 10;
+                    y = false;
+                    document.getElementById("ultima").innerHTML = +10;
                 }
             }
         });
     }
-    if (this.value == "Ceuta" || this.value == "Melilla") {
-        if (provinciasUsadas.includes(this.value)) {
-            provinciasUsadas.push(this.value);
+    if (x == ("CEUTA") || x == "MELILLA") {
+        if (!provinciasUsadas.includes(x)) {
+            provinciasUsadas.push(x);
+            this.classList.remove("mal");
             this.classList.add("bien");
+            console.log("bien")
+            y = false;
+            puntos+=10;
+            document.getElementById("ultima").innerHTML = +10;
         }
     }
+
+    if (y) {
+        puntos -= 5;
+        this.classList.add("mal");
+        document.getElementById("ultima").innerHTML = -5;
+    }
+    document.getElementById("total").innerText = puntos;
 
     if (provinciasUsadas >= 52) {
         document.getElementById("contenedorPuntos").classList.replace("ocultar", "mostrar")
         document.getElementById("resultado").classList.replace("ocultar", "mostrar" )
+        document.getElementById("resultado").innerHTML = puntos;
     }
 }
