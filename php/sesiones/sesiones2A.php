@@ -7,8 +7,33 @@
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
+<?php
+
+        if (isset($_POST['submit'])) {
+            
+            //session_start();
+            $mal = "no";
+            /*$nombre = $_POST['nombre'];
+            $apellido = $_POST['apellido'];
+            $edad = $_POST['edad'];
+            $peso = $_POST['peso'];*/
+            echo "echo";
+            /*
+            if (!preg_match('/^(?=.{3,18}$)[a-zñA-ZÑ](\s?[a-zñA-ZÑ])*$/', $nombre)) {
+                array_push($mal, $nombre);
+            }if (!preg_match('/^(?=.{3,18}$)[a-zñA-ZÑ](\s?[a-zñA-ZÑ])*$/', $apellido)) {
+                array_push($mal, $apellido);
+            }if ($edad < 10 || $edad > 100) {
+                array_push($mal, $edad);
+            }if ($peso > 150 || $peso < 10) {
+                array_push($mal, $peso);
+            }*/
+            
+        }
+
+    ?>
     <article>
-        <form action="post">
+        <form action="">
             Nombre: <input type="text" name="nombre" id=""><br>
             Apellidos: <input type="text" name="apellido" id=""><br>
             Edad: <input type="number" name="edad" id=""><br>
@@ -33,9 +58,17 @@
                 <option value="videojuegos">Videojuegos</option>
             </select><br><!-- Cine, Deporte, Literatura, Música, Cómics,
 Series, Videojuegos -->
-            <input type="submit" value="Enviar">
+            <input type="submit" name="submit" class="boton">
             <input type="reset" value="Borrar">
         </form>
+        <?php
+        $mal = "aaa";
+            echo "<h4 class='mal'>".$mal."</h4>";
+            function impres($si){
+                echo $si;
+            }
+        ?>
     </article>
+    
 </body>
 </html>
