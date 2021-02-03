@@ -1,0 +1,9 @@
+div {
+    width: 100px;
+    height: 100px;
+    background-color: gray;
+    border-style: solid;
+    border-width: 20px;
+    border-image-source: url("../imgs/movil.png");
+    border-image-slice: 60 8 70 8;
+}

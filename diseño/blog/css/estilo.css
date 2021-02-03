@@ -1,0 +1,82 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+h1 {  font: bold 2em verdana, sans-serif; }
+h2 { font: bold 1.5em verdana, sans-serif; }
+h3 { font: bold 1em verdana, sans-serif; }
+#page {
+    width: 960px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin: 15px auto 15px auto;
+    text-align: left;
+}
+#header {
+    background-color: #FFFBB9;
+    border: solid 1px #999999;
+    padding: 20px;
+}
+#nav {
+    list-style: none;
+    background-color: #CCCCCC;
+    padding: 1rem 15px 1rem 15px;
+    font: bold 14px verdana, sans-serif;
+    padding: 5px;
+}
+
+a {
+    margin-left: 15px;
+    display: inline;
+    cursor: default;
+    text-decoration: none;
+}
+a:hover {
+    color: white;
+}
+
+#content {
+    float: left;
+    width: 660px;
+    padding: 20px;
+}
+#aside {
+    
+    float: left;
+    width: 220px;
+    margin: 20px 0 auto 0;
+    padding: 20px;
+    background-color: #CCCCCC;
+}
+#footer {
+    clear: both;
+    border-top: 2px solid #999999;
+    padding: 20px;
+    text-align: center;
+}
+
+.article { 
+    background: #FFFBCC;
+    border: 1px solid #999999;
+    padding: 20px; 
+    margin-bottom: 15px;
+}
+.article_header { 
+    border-bottom: 1px solid #999999;
+}
+.article_footer {
+    text-align: right; 
+}
+
+.time { 
+    border-bottom: #999999 solid 1px;
+    color: #999999;
+}
+
+.figure { 
+    border: 1px double #999999;
+    padding: 5px; 
+}
+.figure .figcaption {
+    font: italic 0.6em verdana sans-serif;
+}

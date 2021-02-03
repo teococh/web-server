@@ -23,6 +23,11 @@ window.onload = function () {
 function pintar() {
     
     let select = document.createElement("select");
+    let elegir = document.createElement("option");
+    let et = document.createTextNode("elegir");
+    elegir.setAttribute("disabled", "true");
+    elegir.appendChild(et);
+    select.appendChild(elegir)
 
     for (let i = 0; i < 17; i++) {
         json.comunidades[i].provincias.forEach(element => {

@@ -1,0 +1,39 @@
+*{margin:0;padding:0;}  
+nav a{
+      text-decoration: none;
+      
+      color:inherit;
+      font-size:14px;
+      }
+            
+nav li{
+      display:inline-block;
+      width:150px;
+      height:30px;
+      padding:5px 10px;
+      text-align:center;
+      position:relative;
+}
+nav > ul > li > ul{
+    margin-top: 10px;
+}
+nav > ul > li > ul > li{
+    background-color:gray;
+    color: whitesmoke;
+}
+nav li:hover{
+      color:#000;
+      }
+            
+nav li>ul{
+      display:none;
+      }
+
+nav li:hover>ul{
+    color: white;
+      display:block;
+      position:absolute;
+      top:30px;
+      left:0px;
+}
+

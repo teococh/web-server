@@ -1,0 +1,35 @@
+
+body {
+    background-color: yellow;
+}
+main {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    background-color: aqua;
+}
+header {
+    background-color: yellow;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    display: grid;
+}
+div {
+    background-color: white;
+    opacity: 0.8;
+    margin: 5px;
+    width: auto;
+    height: auto;
+    text-align: center;
+}
+div:hover {
+    border: 1px yellow solid;
+}
+@media all and (max-width: 800px){
+    main{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

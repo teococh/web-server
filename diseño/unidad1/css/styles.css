@@ -1,0 +1,18 @@
+#primero > .destacado {
+  color: #FF8000;
+  font-size: 1.6em;
+  text-align: center;
+  padding: 6PX;
+}
+
+#segundo > .destacado {
+  color: #2E5F64;
+  font-size: 1.4em;
+  padding: 4px;
+  text-decoration: underline;
+}
+
+#segundo > p:not(.destacado) {
+  font-style: italic;
+}
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/stylesVideos.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos</title>
+</head>
+<body>
+    <main>
+      <header>
+        <h1><img src="../imgs/logo.png">Curso HTML5 y CSS3</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#1">Contenidos</a></li>
+            <li><a href="./videos.html">Vídeos</a>
+                <ul>
+                    <li> Videos 1</li>
+                    <li>Videos 2</li>
+                    <li>Videos 3</li>
+                </ul>
+            </li>
+            <li><a href="#3">Contacto</a></li>
+        </ul>
+    </nav>
+        <div id="reproductor">
+          <video id="medio" width="720" height="400"> <source src="media/trailer.mp4">
+            <source src="media/trailer.ogg">
+          </video>
+          <div id="barra">
+            <div id="progreso"></div>
+          </div>
+        </div>
+        <nav>
+          <input type="button" id="reiniciar" value="reiniciar">
+          <input type="button" id="retrasar" value="&laquo;">
+          <input type="button" id="play" value="&#9658;">
+          <input type="button" id="adelantar" value="&raquo;"> 
+          <input type="button" id="silenciar" value="silenciar">
+          <label>Volumen</label>
+          <input type="button" id="menosVolumen" value="-">
+          <input type="button" id="masVolumen" value="+">
+        </nav>
+      </main>
+</body>
+</html>

@@ -1,0 +1,18 @@
+header {
+  position: relative;
+  width: 80%;
+  display: inline-block;
+  padding: 0 10%;
+}
+
+header > img {
+  width: 10rem;
+  height: 10rem;
+  position: absolute;
+  top: 5%;
+}
+
+header > a {
+  float: right;
+}
+/*# sourceMappingURL=styles.css.map */

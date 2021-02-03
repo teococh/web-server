@@ -1,0 +1,80 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    background-color: rgb(80, 140, 140);
+    display: flex;
+    justify-content: center;
+}
+main {
+    padding: 10px;
+    margin: 30px auto 0 auto;
+    width: 900px;
+    background-color: white;
+}
+h1 {
+    text-align: center;
+    margin: 10px;
+    border-bottom: 1px solid rgb(80, 140, 140);
+    padding: 15px;
+    width: 900px;
+}
+article:first-of-type {
+    width: 900px;
+    padding: 10px;
+}
+article:first-of-type > div {
+    float: left;
+    display: block;
+    width: 30%;
+    height: 50px;
+}
+article:last-of-type {
+    width: 900px;
+    padding: 10px;
+    display: block;
+}
+article:last-of-type > div {
+    width: 95%;
+    height: 50px;
+}
+div {
+    text-align: center;
+    border: 1px solid;
+    margin: 10px;
+}
+article:first-of-type > :nth-child(2) {
+    border-radius: 20px 30px 10px 40px;
+}
+article:first-of-type > :nth-child(3) {
+    border-radius: 3px;
+}
+article:first-of-type > :nth-child(4) {
+    border-radius: 50px;
+    background: linear-gradient(to bottom, #FFFFFF, rgb(80, 140, 140));
+}
+article:first-of-type > :nth-child(5) {
+    border-radius: 50px;
+    background:radial-gradient(ellipse, #FFFFFF 0%, rgb(80, 140, 140) 200%);
+}
+article:first-of-type > :nth-child(6) {
+    border-radius: 50px;
+}
+article:last-of-type > :nth-child(2) {
+    border-radius: 50px;
+    height: 80px;
+    box-shadow: 5px 5px 5px rgb(80, 140, 140);
+}
+article:last-of-type > :nth-child(3) {
+    text-shadow: 5px 5px 5px rgb(80, 140, 140);
+}
+article:last-of-type > :nth-child(4) {
+    border-radius: 50px;
+    background: linear-gradient(90deg, #FFFFFF, rgb(80, 140, 140));
+}
+footer {
+    padding: 15px;
+    border-top: solid 1px rgb(80, 140, 140);
+    text-align: center;
+}

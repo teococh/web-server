@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="../css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="registro" method="post"> <h1>Regístrate!</h1>
+        <ul>
+            <li>
+                <label for="nombre">Mi nombre es:</label>
+                <input type="text" id="nombre" name="nombre">
+            </li>
+            <li>
+                <label for="email">Mi email es:</label>
+                (puedes introducir varios separados por comas) <br>
+                <input type="email" id="email" name="email" multiple>
+            </li>
+            <li>
+                <label for="password1">Me gustaria que mi password fuera:</label>
+                (al menos 6 caracteres, sin espacios) <br>
+                <input type="password" id="password1" name="password1">
+            </li>
+            <li>
+                <label for="password2">Mi password repetida es:</label>
+                <input type="password" id="password2" name="password2">
+            </li>
+            <li>
+                <label for="fechaInicio">Por favor, inicia mi subscripción el día:</label>
+                <input type="date" name="fechaInicio" id="fechaInicio">
+            </li>
+        </ul>
+        <button>ENVIAME</button>
+    </form>
+    
+</body>
+</html>

@@ -90,7 +90,7 @@ function cosa() {
         document.getElementById("total").innerHTML = parseInt(document.getElementById("total").innerHTML) + 50;
         fallos = 1;
     }
-    if (aciertos => 17) {
+    if (aciertos >= 17) {
         document.getElementById("contenedorPuntos").classList.remove("ocultar");
         document.getElementById("resultado").classList.remove("ocultar");
     }
