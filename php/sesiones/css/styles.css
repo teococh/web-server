@@ -7,3 +7,10 @@ article {
 .mal {
     color: red;
 }
+.validado {
+    color: blue;
+}
+li {
+    list-style: none;
+    color: green;
+}

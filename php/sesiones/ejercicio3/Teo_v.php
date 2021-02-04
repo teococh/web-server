@@ -14,22 +14,22 @@
     <?php
     function vUsuario($vusuario){
         if (strlen($vusuario) > 4) {
-            return $vusuario;
+            return "<h4 class='bien'>".$vusuario."<h4>";
         }else{
-            return "";
+            return "<h4 class='mal'>".$vusuario."<h4>";
         }
     }
     function vPassword($vpassword){
         if (strlen($vpassword) >= 6) {
-            return $vpassword;
+            return "<h4 class='bien'>".$vpassword."<h4>";
         }else {
-            return "";
+            return "<h4 class='mal'>".$vpassword."<h4>";
         }
     }
     function vNombre($vnombre){
         # El nombre debe tener de 3 a 18 caracteres alfanumericos
         if (preg_match('/^(?=.{3,18}$)[a-zñA-ZÑ](\s?[a-zñA-ZÑ])*$/', $vnombre)) {
-            return $vnombre;
+            return "<h4 class='bien'>".$vnombre."<h4>";
         }else{
             return "";
         }

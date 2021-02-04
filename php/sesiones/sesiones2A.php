@@ -13,43 +13,89 @@
             session_start();
             
             $mal = array();
+            $bien = array();
             $nombre = $_POST['nombre'];
             $apellido = $_POST['apellido'];
             $edad = $_POST['edad'];
             $peso = $_POST['peso'];
+            $sexo = $_POST['sexo'];
+            $estado_civil = $_POST['ec'];
+
+            // Para guardar las aficiones en sesion tiene que ser un array
+            $_SESSION['aficiones'] = array();
+            foreach ($_POST['aficiones'] as $selectedOption)
+                echo $selectedOption;
+                //array_push($_SESSION['aficiones'], $selectedOption);    
+
             $validar = true;
             
-            if (!preg_match('/^(?=.{3,18}$)[a-zñA-ZÑ](\s?[a-zñA-ZÑ])*$/', $nombre)) {
+            if (!preg_match('/^(?=.{3,18}$)[a-zñA-ZÑ](\s?[a-zñA-ZÑ])*$/', $nombre) || $nombre == null) {
                 array_push($mal, $nombre);
                 $validar = false;
-            }if (!preg_match('/^(?=.{3,18}$)[a-zñA-ZÑ](\s?[a-zñA-ZÑ])*$/', $apellido)) {
+            }else {
+                array_push($bien, $nombre);
+                $_SESSION["nombre"] = $nombre;
+            }
+            if (!preg_match('/^(?=.{3,18}$)[a-zñA-ZÑ](\s?[a-zñA-ZÑ])*$/', $apellido)) {
                 array_push($mal, $apellido);
                 $validar = false;
-            }if ($edad < 10 || $edad > 100) {
+            }else {
+                array_push($bien, $apellido);
+                $_SESSION["apellido"] = $apellido;
+                
+            }
+            if ($edad < 10 || $edad > 100) {
                 $validar = false;
                 array_push($mal, $edad);
-            }if ($peso > 150 || $peso < 10) {
+            }else {
+                array_push($bien, $edad);
+                $_SESSION["edad"] = $edad;
+                
+            }
+            if ($peso > 150 || $peso < 10) {
                 $validar = false;
                 array_push($mal, $peso);
+            }else {
+                array_push($bien, $peso);
+                $_SESSION["peso"] = $peso;
+            }
+            if ($sexo == null) {
+                array_push($mal, "sexo");
+                $validar = false;
+            }else {
+                array_push($bien, $sexo);
+                $_SESSION['sexo'] = $sexo;
+            }
+            if ($estado_civil == null) {
+                array_push($mal, "estado civil");
+                $validar = false;    
+            }else {
+                array_push($bien, $estado_civil);
+                $_SESSION['ec'] = $estado_civil;
+            }
+            if (array_count_values($aficiones)) {
+                array_push($mal, "aficiones");
+                $validar = false;
+            }else {
+                array_push($bien, $aficiones);
+                
+            }
+            
+            foreach ($aficiones as $key) {
+                array_push($_SESSION['aficiones'], $key);
             }
 
-            if ($validar) {
-                echo "<h4 class='mal'>sesion</h4>";
+            echo "<h4 class='mal'>";
+            foreach ($mal as $value) {
+                echo $value;
             }
-            $_SESSION["nombre"] = $nombre;
-            $_SESSION["apellido"] = $apellido;
-            $_SESSION["edad"] = $edad;
-            $_SESSION["peso"] = $peso;
-            $_SESSION["mal"] = $mal;
-            foreach ($mal as $key => $value) {
-                echo "<h4 class='mal'>$value</h4>";
-            }
+            echo "</h4>";
         }
-
-        if (isset($_POST['enviar']) && $validar) {
-            
-           
-            
+        if ($validar) {
+            print "<h4 class='validado'>El formulario está correctamente validado y preparado para su envío</h4>";
+        }
+        if (isset($_POST['enviar'])) {
+            echo "caca" ;
         }
 
     ?>
@@ -59,7 +105,7 @@
             Apellidos: <input type="text" name="apellido" id=""><br>
             Edad: <input type="number" name="edad" id=""><br>
             Peso: <input type="number" name="peso" id=""><br><!-- Entre 10 y 150 -->   
-            Sexo: H <input type="radio" name="sexo" value="h" id=""> M <input type="radio" name="sexo" value="m" id=""><br>
+            Sexo: H <input type="radio" name="sexo" value="hombre" id=""> M <input type="radio" name="sexo" value="mujer" id=""><br>
             Estado civil: <select name="ec" id="">
                 <option value="soltero">Soltero</option>
                 <option value="casado">Casado</option>
@@ -80,10 +126,9 @@
             </select><br><!-- Cine, Deporte, Literatura, Música, Cómics,
 Series, Videojuegos -->
             <input type="submit" name="validar" class="boton" value="validar">
-            <input type="button" name="enviar" value="Enviar"href="sesiones2B.php?<?php echo 'id='. session_id(); ?>">
+            <input type="button" name="enviar" value="Enviar" href="sesiones2B.php?<?php echo 'id='. session_id(); ?>">
         </form>
-        Para continuar, <a href="sesiones2B.php?<?php echo 'id='. session_id(); ?>">haga clic
-aquí</a>.
+        <a href="sesiones2B.php?id=<?php print session_id(); ?>">Otra página</a>
     </article>
     
 </body>
