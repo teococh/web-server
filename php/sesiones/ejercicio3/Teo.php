@@ -22,11 +22,16 @@
     .boton {
         margin-left: 0;
     }
+    .mal {
+        color: red;
+    }
     </style>
 </head>
 <body>
     <?php
     include './Teo_v.php';
+
+        session_start();
     
         $usuario;
         $password;
@@ -39,20 +44,24 @@
         $novela;
         $edad;
         if (isset($_POST['validar'])) {
-            $usuario = vUsuario($_REQUEST['usuario']);
-            $password = vPassword($_REQUEST['password']);
-            $nombre = vNombre($_REQUEST['nombre']);
-            $email = vEmail($_REQUEST['email']);
-            $fijo = vFijo($_REQUEST['fijo']);
-            $movil = vMovil($_REQUEST['movil']);
-            $codigoPostal = $_REQUEST['cp'];
-        }
+            echo vUsuario($_POST['usuario']);
+            $_SESSION['usuario'] = vUsuario($_POST['usuario']);
+            $_SESSION['passwd'] = vPassword($_POST['password']);
+            $_SESSION['nombre'] = vNombre($_POST['nombre']);
+            $_SESSION['email'] = vEmail($_POST['email']);
+            $_SESSION['fijo'] = vFijo($_POST['fijo']);
+            $_SESSION['movil'] = vMovil($_POST['movil']);
+            $_SESSION['cp'] = $_POST['cp'];
+            validacion();
+        }/*
         if (isset($_POST['enviar'])) {
-            
-        }
+            $url = "./Teo_ok.php?id=".session_id();
+            header("Location: .$url");
+            die();
+        }*/
     ?>
     <article id="ejercicio1">
-        <form action="Teo_ok.php" method="post">
+        <form action="" method="post">
             <label>Usuario: </label><input type="text" name="usuario" value="<?php echo $usuario;?>" /><br>
             <label>Password: </label><input type="password" name="password" value="<?php echo $password;?>" /><br>
             <label>Nombre: </label><input type="text" name="nombre" value="<?php echo $nombre;?>" ><br>
@@ -89,6 +98,14 @@
             <input type="reset" name="borrar" value="Borrar" class="boton">
             <input type="submit" name="validar" value="Validar" class="boton">
         </form>
+        <a href="Teo_ok.php?id=<?php print session_id(); ?>">Validado</a>
     </article>
+    <?php
+        function validacion(){
+            foreach ($_SESSION as $key) {
+                echo $key." ";
+            }
+        }
+    ?>
 </body>
 </html>

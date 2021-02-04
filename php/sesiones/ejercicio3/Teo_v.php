@@ -14,31 +14,31 @@
     <?php
     function vUsuario($vusuario){
         if (strlen($vusuario) > 4) {
-            return "<h4 class='bien'>".$vusuario."<h4>";
+            return $vusuario;
         }else{
-            return "<h4 class='mal'>".$vusuario."<h4>";
+            return "<p class='mal'>usuario</p>";
         }
     }
     function vPassword($vpassword){
         if (strlen($vpassword) >= 6) {
-            return "<h4 class='bien'>".$vpassword."<h4>";
+            return $vpassword;
         }else {
-            return "<h4 class='mal'>".$vpassword."<h4>";
+            return "<p class='mal'>password</p>";
         }
     }
     function vNombre($vnombre){
         # El nombre debe tener de 3 a 18 caracteres alfanumericos
         if (preg_match('/^(?=.{3,18}$)[a-zñA-ZÑ](\s?[a-zñA-ZÑ])*$/', $vnombre)) {
-            return "<h4 class='bien'>".$vnombre."<h4>";
+            return $vnombre;
         }else{
-            return "";
+            return "<p class='mal'>nombre</p>";
         }
     }
     function vEmail($vemail){
         if (filter_var($vemail, FILTER_VALIDATE_EMAIL)) {
             return $vemail;
         }else {
-            return "";
+            return "<p class='mal'>email</p>";
         }
     }
     function vFijo($vfijo){
@@ -46,7 +46,7 @@
             return $vfijo;
         }
         else{
-            return "";
+            return "<p class='mal'>fijo</p>";
         }
         
     }
@@ -55,7 +55,7 @@
             return $vmovil;
         }
         else{
-            return "";
+            return "<p class='mal'>movil</p>";
         }
     }
     function vCodigoPostal($cp)
@@ -64,7 +64,7 @@
             return $cp;
         }
         else{
-            return "";
+            return "<p class='mal'>cp";
         }
     }
     ?>

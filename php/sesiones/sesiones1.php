@@ -8,7 +8,7 @@
 </head>
 <body>
     <article>
-        <form action="./sesiones2B.php" method="post">
+        <form action="" method="post">
             Nombre: <input type="text" name="nombre"/><br>
             <select name="sal" id="a">
                 <option value="saludo">Saludo</option>
@@ -49,6 +49,6 @@
             $_SESSION['sesion1'] = $array;
         ?>
     </article>
-    <a href="./sesiones.html">Inicio sesiones</a>
+    
 </body>
 </html>
