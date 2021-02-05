@@ -7,27 +7,17 @@
 </head>
 <body>
 
-    <form action="">
-
-        Nombre del empleado: <input type="text" name="nombre" id=""><br>
-        Empleo: <input type="text" name="empleo" id=""><br>
-        <input type="submit" value="submit" name="send">
-
-    </form>
-
-    <?php
-    if (isset($_POST['send'])) {
-        session_start();
-        $hora = date('H:i');
-        $session_id = session_id();
-        $token = hash("sha256", $hora.$session_id.$_POST['nombre'].$_POST['empleo']);
-         
-        $_SESSION['token'] = $token;
-         
-        echo $_SESSION['token'];
-    }
-        
-    ?>
+<?php
+    session_start();
+    $token = bin2hex(openssl_random_pseudo_bytes(24));
+    $_SESSION["token"] = $token;
+?>
+<form action="process1.php" method="post">
+    <input type="hidden" name="token" value="<?php echo $_SESSION['token']; ?>">
+    <input type="text" name="nombre" placeholder="Su nombre"><br>
+    <input type="text" name="empleo" placeholder="Su empleo">
+    <input type="submit" name="submit_form">
+</form>
 
 </body>
 </html>
