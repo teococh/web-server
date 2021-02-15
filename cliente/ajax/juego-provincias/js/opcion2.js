@@ -5,6 +5,7 @@ let select;
 const acierto = 50;
 var fallos;
 var aciertos;
+let result;
 
 window.onload = function () {
 
@@ -20,18 +21,7 @@ window.onload = function () {
         a.push(index);
     }
 
-    fetch("js/provincias.json")
-    .then(respuesta => respuesta.json() )
-    .then(data => {
-        json = data
-        console.log(json)
-        for (let index = 0; index < 18; index++) {
-            let rnd = Math.floor(Math.random() * a.length);
-            pintarDiv(a[rnd]);
-            a.splice(rnd, 1);
-            
-        }
-    });
+    cargar();
     
 
 }
@@ -94,4 +84,19 @@ function cosa() {
         document.getElementById("contenedorPuntos").classList.remove("ocultar");
         document.getElementById("resultado").classList.remove("ocultar");
     }
+}
+
+async function cargar() {
+    result = await fetch("js/provincias.json")
+    .then(respuesta => respuesta.json() )
+    .then(data => {
+        json = data
+        console.log(json)
+        for (let index = 0; index < 18; index++) {
+            let rnd = Math.floor(Math.random() * a.length);
+            pintarDiv(a[rnd]);
+            a.splice(rnd, 1);
+            
+        }
+    });
 }

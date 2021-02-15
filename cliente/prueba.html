@@ -1,0 +1,27 @@
+<html>
+<head>
+   <meta charset="UTF-8">  	<title>Concurrencia</title>
+</head>
+<body>
+   <script type="text/javascript">
+    let numeros = [];
+    
+    const getDatos = await pin();
+    console.log(getDatos);
+    console.log("Hola mundo");
+
+    
+    async function pin() {
+        let tope = 10000;
+        for(i=0;i<tope;i++){      	
+            numeros.push(i);
+    }
+        return numeros;
+    }
+
+  </script>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+<button>¿Veremos este botón en el navegador?</button>
+</body>
+
+</html>
